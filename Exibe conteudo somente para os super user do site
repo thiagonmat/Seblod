@@ -1,0 +1,10 @@
+<?php
+	$user = JFactory::getUser();
+	$isAdmin = $user->get('isRoot');
+		if ($isAdmin) {?>
+			<?php //exibe conteudo somente para admin ?>?>
+	<?php }
+		else  {?>
+		<?php //exibe conteudo para usuário que não é admin?>
+	<?php }
+?>

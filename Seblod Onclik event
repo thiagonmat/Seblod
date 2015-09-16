@@ -1,0 +1,3 @@
+$("#fieldID").on('click', function() {
+      // display the GIF
+});<br>

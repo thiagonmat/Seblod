@@ -1,0 +1,9 @@
+<?php if($cck->get('algum field')->value) { ?>
+
+  <p></p>
+
+    <?php } else { ?>
+
+  aqui entra o conteudo padrão do site caso não tenha nada criado
+
+<?php } ?>

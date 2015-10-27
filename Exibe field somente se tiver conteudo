@@ -1,0 +1,10 @@
+<?php if($cck->get('campo')->value) { ?> 
+// se o campo tiver algo faça. Aqui não mostra nada, mas pode ter qualquer coisa!
+
+<?php } else { ?>
+
+//Se não tiver nada faça. Neste caso mostrar um campo!
+
+<?php echo $cck->renderField('campoacao'); ?>
+
+<?php } ?>

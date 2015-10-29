@@ -8,3 +8,5 @@
 <?php echo $cck->renderField('campoacao'); ?>
 
 <?php } ?>
+
+ Pode usar também o if(!empty($field){...}, se a variável $field não estiver vazia vai dar verdadeiro, se não vai dar falso.

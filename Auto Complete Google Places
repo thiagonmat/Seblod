@@ -1,0 +1,94 @@
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+    <script>
+// This example displays an address form, using the autocomplete feature
+// of the Google Places API to help users fill in the information.
+var placeSearch, autocomplete;
+var componentForm = {
+  
+  route: 'long_name',
+  neighborhood: 'long_name',
+  locality: 'long_name',
+ 
+  administrative_area_level_1: 'short_name',
+  
+  postal_code: 'short_name'
+  
+};
+function initialize() {
+  // Create the autocomplete object, restricting the search
+  // to geographical location types.
+  autocomplete = new google.maps.places.Autocomplete(
+      /** @type {HTMLInputElement} */(document.getElementById('autocomplete')),
+      { types: ['geocode'] });
+  // When the user selects an address from the dropdown,
+  // populate the address fields in the form.
+  google.maps.event.addListener(autocomplete, 'place_changed', function() {
+    fillInAddress();
+  });
+}
+// [START region_fillform]
+function fillInAddress() {
+  // Get the place details from the autocomplete object.
+  var place = autocomplete.getPlace();
+  for (var component in componentForm) {
+    document.getElementById(component).value = '';
+    document.getElementById(component).disabled = false;
+  }
+  // Get each component of the address from the place details
+  // and fill the corresponding field on the form.
+  for (var i = 0; i < place.address_components.length; i++) {
+    var addressType = place.address_components[i].types[0];
+    if (componentForm[addressType]) {
+      var val = place.address_components[i][componentForm[addressType]];
+      document.getElementById(addressType).value = val;
+    }
+  }
+}
+// [END region_fillform]
+// [START region_geolocation]
+// Bias the autocomplete object to the user's geographical location,
+// as supplied by the browser's 'navigator.geolocation' object.
+// [END region_geolocation]
+    </script>
+    <?php echo $cck->renderField('art_title_backend'); ?>
+    <body onload="initialize()">
+    
+      <input id="autocomplete" class="inputbox text input-xxlarge input-large-text" size="320" maxlength="255" placeholder="Entre com endereço"
+             onFocus="geolocate()" type="text"> </input>
+    
+
+    <table id="address">
+      <tr>
+        <td class="label">Rua </td>
+        
+        <td class="wideField" colspan="2"><input class="field" name="endereco" id="route"
+              disabled="true"></input></td>
+      </tr>
+      <tr>
+        <td class="label">Cidade</td>
+        <td class="wideField" colspan="3"><input class="field" name="cidade" id="locality"
+              disabled="true"></input></td>
+      </tr>
+      <tr>
+        <td class="label">Estado</td>
+        <td class="slimField"><input class="field"
+              id="administrative_area_level_1" disabled="true"></input></td>
+        <td class="label">CEP</td>
+        <td class="wideField"><input class="field" name="estado" id="postal_code"
+              disabled="true"></input></td>
+      </tr>
+      
+      
+      <tr>
+        <td class="label">bairro</td>
+        <td class="wideField" colspan="3"> <input class="field" name="bairro" id="neighborhood" disabled="true"> </input></td>
+      </tr>
+      
+       
+    </table>
+    
+    
+    
+
+<?php echo $cck->renderField('button_search'); ?>

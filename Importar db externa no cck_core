@@ -1,0 +1,1 @@
+INSERT INTO `lk73s_cck_core` (`cck`, `pk`, `pkb`, `storage_location`, `storage_table`, `author_id`, `parent_id`, `store_id`, `date_time`) SELECT 'nome_do_app', `id`, '0', 'free', '#__nome_da_db_externa', 553, '0', '0', now() a FROM `lk73s_nome_da_db_externa`

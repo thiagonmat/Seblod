@@ -1,0 +1,8 @@
+<?php
+
+	$db = &JFactory::getDBO();
+	$query = "SELECT count(*) as total  FROM nbl81_cck_store_form_cadastro WHERE ce_estado = '25'";
+	$db->setQuery($query); $totalce_estado = $db->loadObject();
+	echo $totalce_estado->total;
+
+?>

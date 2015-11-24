@@ -1,0 +1,10 @@
+<?php 
+//limpar nome de usuário
+$variavel = $cck->getValue('art_created_by'); 
+
+$variavel_limpa = strtolower( ereg_replace("[^a-zA-Z0-9-]", "-", strtr(utf8_decode(trim($variavel)), utf8_decode("áàãâéêíóôõúüñçÁÀÃÂÉÊÍÓÔÕÚÜÑÇ"),"aaaaeeiooouuncAAAAEEIOOOUUNC-")) );
+?>
+
+
+
+<a rel="author" href="index.php?option=com_cck&view=form&layout=edit&type=user&id=<?php echo $variavel_limpa ; ?>" >teste</a>

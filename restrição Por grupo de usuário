@@ -1,0 +1,18 @@
+<?php
+	$user = JFactory::getUser();
+	$groups = $user->get('groups');
+
+	if (is_array($groups)) {
+	foreach($groups as $group) {
+	} }
+?>
+
+<?php if ($group >= 11) { ?> 
+
+aqui o grupo pode ver
+
+
+<?php } else { ?>
+aqui nao
+
+<?php } ?>

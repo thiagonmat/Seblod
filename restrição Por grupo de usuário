@@ -10,6 +10,8 @@
 <?php
 	//visivel somente para cadastro gratuito, colocar o id do grupo
 	if(in_array(11, $groups)) { ?>
-	
-	<?php }
-?>
+	 //conteudo exibido para o grupo
+	<?php } else { ?>
+
+	não é do grupo
+ <?php }?>

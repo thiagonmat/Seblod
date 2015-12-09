@@ -1,17 +1,13 @@
-<?php 
+ <?php 
 	$user = JFactory::getUser();
 	$groups = $user->get('groups');
-	foreach($groups as $group) { ?>
-	    
-	<?php }  ?>
-
-
+	foreach($groups as $group) { ?>    
+<?php }  ?>
 
 <?php
-	//visivel somente para cadastro gratuito, colocar o id do grupo
-	if(in_array(11, $groups)) { ?>
-	 //conteudo exibido para o grupo
-	<?php } else { ?>
+	//visivel somente para admin
+	if(in_array(8, $groups)) { ?>
 
-	não é do grupo
+	<?php } else { ?>
+	
  <?php }?>
